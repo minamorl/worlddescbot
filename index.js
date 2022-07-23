@@ -32,6 +32,7 @@ const reply = (message, content) => {
 
 client.on("messageCreate", async function (message) {
   if (message.author.bot) return;
+  if (message.channel.name !== "世界記述体") return;
   console.log(message.cleanContent);
   (async () => {
     const gptResponse = await openai.createCompletion({
@@ -44,9 +45,6 @@ client.on("messageCreate", async function (message) {
       return
     };
     reply(message, gptResponse.data.choices[0].text);
-
-
-    // prompt += message.content +  gptResponse.data.choices[0].text + "\n"
   })();
 });
 
