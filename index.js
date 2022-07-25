@@ -45,7 +45,7 @@ client.on("messageCreate", async function (message) {
       return
     };
     reply(message, gptResponse.data.choices[0].text);
-    prompt += gptResponse.data.choices[0].text
+    // prompt += gptResponse.data.choices[0].text
   })();
 });
 
